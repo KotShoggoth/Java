@@ -1,0 +1,25 @@
+package Report;
+
+public class ReportRow{
+    public String word;
+    public int freq;
+    public float PFreq;
+
+    ReportRow(String word,int freq,float pFreq){
+        this.word=word;
+        this.freq=freq;
+        this.PFreq=pFreq;
+    }
+
+    public String getWord(){
+        return word;
+    }
+
+    public int getFreq(){
+        return freq;
+    }
+
+    public float getPFreq() {
+        return PFreq;
+    }
+}
