@@ -1,0 +1,58 @@
+package StatWords;
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+
+public class WordStat {
+
+    private static Integer totalCount;
+
+    public HashMap<String, Counter> statistic;
+
+    public WordStat(){
+        totalCount=0;
+        statistic = new HashMap<>();
+    }
+
+    public int getTotalCount(){
+        return totalCount;
+    }
+
+
+    public void getStatistic(){
+        for(Map.Entry<String, Counter> entry: statistic.entrySet()){
+            String key = entry.getKey();
+            Counter value = entry.getValue();
+            System.out.println("Key: " + key + ", Value: " + value.counter);
+        }
+    }
+
+
+
+    public void putting(String wordBuild) {
+
+        for (Map.Entry<String, Counter> entry : statistic.entrySet()) {
+            if (wordBuild.equals(entry.getKey())) {
+                Counter numb=entry.getValue();
+                numb.add();
+                entry.setValue(numb);
+                totalCount++;
+                return;
+            }
+        }
+        Counter first=new Counter(1);
+        statistic.put(wordBuild, first);
+        totalCount++;
+    }
+
+
+    public HashMap getHashMap(){
+        return statistic;
+    }
+
+}
+
+
+
